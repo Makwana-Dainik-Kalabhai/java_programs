@@ -1,7 +1,7 @@
 //* Calendar class is an abstract class
 
 import java.util.*;
-class Main {
+class MyCalendar {
     public static void main(String[] args)
     {
         System.out.println(System.currentTimeMillis());
