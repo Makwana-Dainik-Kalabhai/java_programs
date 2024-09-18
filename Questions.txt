@@ -1,0 +1,79 @@
+Que1) c++ vs java:-
+______________________
+
+-->C++:-
+
+1) In c++, If we compile code, then convert direct to the machine code.
+2) We use vectors(STL-Standard Template Library) for dynamic array.
+3) We saves c++ file with .cpp extension.
+4) Platform Dependent.
+5) can't run on any OS.
+6) Compiled language.
+7) Memory mgt. is controlled manually.
+8) It have goto & virtual keyword.
+9) It supports multiple inheritance.
+10) Supports operator overloading.
+11) Does not support documentation comment.
+12) Does not provide built-in support for threading.
+13) Object oriented & procedural programming.
+14) Uses cin & cout for input & output.
+15) Supports structure & union.
+
+
+-->Java:- 
+
+1) In Java, If we compile the code, then it converts to the byte code then converts to machine code.
+2) We use ArrayList, List(import java.util.ArrayList;) for dynamic array in java.
+3) Saves with .java extension.
+4) Platform Independent.
+5) Can run on any OS.
+6) Compiled & Interpreter language.
+7) Memory mgt. is controlled by the system.
+8) It doesn't have goto & virtual keyword.
+9) It doesn't support multiple inheritance.
+10) Does not support operator overloading.
+11) Supports documentation comment(/**Comment*/);
+12) Provides built-in support for threading.
+13) Only object oriented programming.
+14) Uses Scanner class for input & System.out for output.
+15) Does not support structure & union.
+
+(pass_by_value in variable, but pass_by_ref in array)
+
+
+
+Que-3) Feature of java:-
+________________________
+1) Simple
+2) object-oriented
+3) Platform independent
+4) Portable (compile on any OS)
+5) Secured
+6) Robust (Automatic garbage collection)
+7) Compiled & Interpreted
+8) High performance
+9) Multithreaded
+10) Dynamic
+
+
+
+Que-5) Abstract class vs Interface:-
+_____________________________________
+
+--> Abstract class:-
+
+1) Can have abstract & non-abstract methods.
+2) Can have static, non-static, final & non-final variables.
+3) Provides implementation of interface.
+4) Doesn't support multiple inheritance.
+5) use abstract keyword.
+6) abstract class can extend another class & can implement multiple interfaces.
+
+--> Interface:-
+
+1) Can have only abstract methods.
+2) Only have static & final variables.
+3) Can't implement abstract class.
+4) Supports multiple inheritance.
+5) use interface keyword.
+6) interface can extend only another interface.

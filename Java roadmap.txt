@@ -1,0 +1,52 @@
+**Java roadmap:-
+
+OOPs:-
+____________
+1) Generics
+2) Collection frameworks
+3) Comparable & Comparator
+4) Lambda & Streams
+
+Problem solving:-
+__________________
+1) Arrays
+2) Stack
+3) Queue
+4) Linked list
+4) Binary Tree
+5) Backtracking
+6) Time & space complexity
+7) Recursion
+8) Bit manipulation
+9) Mathematics
+10) Binary search
+11) Divide & conquer
+12) Advance sorting algo
+13) Greedy programming
+14) Hashing & hashmaps
+15) Priority Queues
+16) Disjoint sets
+17) Binary search tree
+18) Graphs
+19) Dynamic programming
+20) String algo
+21) trie
+
+Spring Boots:- (Spring framework)
+_______________
+1) Dependency Injection & mgt. (Tomcat, Apache)
+2) Gradle(Most used) & Maven
+3) Hibernate (MySQL, MongoDB)
+4) Build REST APIs
+5) TDD(Test Driven Development) & JUnit
+
+
+Additional Tools:-
+__________________
+1) Git & GitHub
+2) Linux (commands)
+3) AWS:- SQS, Lambda, DynamoDB, EC2
+4) IntelliJ
+5) Jenkins
+6) Design Principles:- SOA, SOLID, DRY, KISS, Singleton Pattern, Factory Pattern
+7) Micro services, Docker, Kubernetes
