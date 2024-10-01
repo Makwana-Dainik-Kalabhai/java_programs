@@ -4,6 +4,7 @@ class Outer {
 
     Outer() {
         System.out.print("Outer()");
+        Inner I = new Inner("Inner() calling from Outer class");
     }
 
     void incrementOuter() {
@@ -22,13 +23,16 @@ class Outer {
     }
 
     // static Class
-    static class Inner {
+    class Inner {
 
         int nonStaticInner = 30;
         static int staticInner = 40;
 
         Inner() {
             System.out.print("\tInner()");
+        }
+        Inner(String str) {
+            System.out.println("\n"+str);
         }
 
         void incrementInner() {
@@ -52,7 +56,12 @@ class NestedClass {
     public static void main(String[] args) {
         System.out.println("\n\n_________________(Object - 1)___________________");
         Outer O1 = new Outer();
-        Outer.Inner I1 = new Outer.Inner();
+
+        //* If Inner class is static
+        // Outer.Inner I1 = new Outer.Inner();
+
+        // * If Inner class is not static
+        Outer.Inner I1 = O1.new Inner();
 
         O1.outerMethod();
         O1.incrementOuter();
@@ -62,7 +71,7 @@ class NestedClass {
 
         System.out.println("\n\n_________________(Object - 2)___________________");
         Outer O2 = new Outer();
-        Outer.Inner I2 = new Outer.Inner();
+        Outer.Inner I2 = O2.new Inner();
 
         O2.outerMethod();
         O2.incrementOuter();
