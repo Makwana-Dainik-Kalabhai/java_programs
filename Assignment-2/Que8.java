@@ -25,16 +25,9 @@ abstract class AbstractBook {
 
     abstract String getBookType();
 
-    // @Override
-    // public void toString() {
-    //     System.out.println("Title: "+this.title);
-    //     System.out.println("Author: "+this.author);
-
-    //     if(!this.isLent)
-    //         System.out.println("Availablability: Available");
-    //     else
-    //         System.out.println("Availablability: Not Available");
-    // }
+    public String toString() {
+        return ("Title: "+this.title+"\nAuthor: "+this.author+"\nBook Type: "+this.bookType);
+    }
 }
 
 class Book extends AbstractBook {
@@ -53,49 +46,85 @@ class Library {
     Library() {
         B.add(new Book("Head First Java","Kathy Sierra","Learning"));
         B.add(new Book("Clean Code","Robert Cecil Martin","Learning"));
-        B.add(new Book("Effective C: An Introduction to Professional C Programming","Robert C. Seacord","Learning"));
         B.add(new Book("A Book On C, 4/E","Kelley","Learning"));
         B.add(new Book("A Tour of C++","Bjarne Stroustrup","Learning"));
-        B.add(new Book("C++ Crash Course: A Fast-Paced Introduction","Josh Lospinoso","Learning"));
         B.add(new Book("A Smarter Way to Learn JavaScript","Mark Myers","Learning"));
-        B.add(new Book("Eloquent JavaScript, 3rd Edition: A Modern Introduction to Programming","Marijn Haverbeke","Learning"));
         B.add(new Book("HTML & CSS: Design and Build Web Sites","Jon Duckett","Learning"));
         B.add(new Book("React and React Native","Adam Boduch","Learning"));
     }
     void addBook(String ...a) {
         B.add(new Book(a[0], a[1], a[2]));
-        System.out.println("***Book added Succefully***");
+        System.out.println("\n***Book added Succefully***");
+        System.out.println(B.get(B.size()-1).toString());
     }
 
-    void lendBook(String title) {
+    void lendBook(int num) {
         for(int i=0; i<B.size(); i++) {
-            if(B.get(i).getTitle() == title) {
+            if((i+1) == num) {
                 B.get(i).isLent = true;
-                System.out.println("***Book lended successfully***("+title+")");
+                System.out.println("\n***Book Lended Successfully***");
+                System.out.println(B.get(i).toString());
                 return;
             }
         }
     }
 
-    void returnBook(String title) {
+    void returnBook(int num) {
         for(int i=0; i<B.size(); i++) {
-            if(B.get(i).getTitle() == title) {
+            if((i+1) == num) {
                 B.get(i).isLent = false;
-                System.out.println("***Book return successfully ("+title+")***");
+                System.out.println("\n***Book Return Successfully***");
+                System.out.println(B.get(i).toString());
                 return;
             }
         }
     }
 
-    void printList() {
-        System.out.println("\nBook List");
-        System.out.println("-----------------------------------------------------");
+    void printAvBook() {
+        int count = 0;
         for(int i=0; i<B.size(); i++) {
             if(!B.get(i).isLent) {
-                System.out.println((i+1)+") Title: "+B.get(i).getTitle());
-                System.out.println("    Author: "+B.get(i).getAuthor());
-                System.out.println("    Book Type: "+B.get(i).getBookType()+"\n");
+                count++;
+                break;
             }
+        }
+        if(count > 0) {
+            System.out.println("\nAvailable Books");
+            System.out.println("_________________________________________________________");
+            for(int i=0; i<B.size(); i++) {
+                if(!B.get(i).isLent) {
+                    System.out.println((i+1)+") "+B.get(i).toString());
+                    System.out.println("-----------------------------------------------");
+                    count++;
+                }
+            }
+        }
+        else {
+            System.out.println("***All Books are Lended Now***");
+        }
+    }
+    void printNotAvBook() {
+        int count = 0;
+
+        for(int i=0; i<B.size(); i++) {
+            if(B.get(i).isLent) {
+                count++;
+                break;
+            }
+        }
+        if(count > 0) {
+            System.out.println("\nAll Lended Books");
+            System.out.println("_________________________________________________________");
+            for(int i=0; i<B.size(); i++) {
+                if(B.get(i).isLent) {
+                    System.out.println((i+1)+") "+B.get(i).toString());
+                    System.out.println("-----------------------------------------------");
+                    count++;
+                }
+            }
+        }
+        else {
+            System.out.println("***All Books are Available, No Any Book is Lended Now***");
         }
     }
 }
@@ -105,15 +134,16 @@ class Que8 {
         Scanner S = new Scanner(System.in);
 
         Library L = new Library();
-        int choice;
+        int choice, num;
         String title, author, bookType;
 
         while(true) {
-            System.out.println("\nChoices....");
+            System.out.println("\n\nChoices....");
             System.out.println("1) Add Book in Library");
             System.out.println("2) Lend Book");
             System.out.println("3) Return Book");
             System.out.println("4) List All Available Books");
+            System.out.println("5) List All lended Books");
             System.out.println("-- Other to Exit");
 
             System.out.print("\nEnter Your Choice: ");
@@ -121,29 +151,40 @@ class Que8 {
 
             switch(choice) {
                 case 1:
+                    Scanner S1 = new Scanner(System.in);
                     System.out.print("Enter Title of the Book: ");
-                    title = S.nextLine();
+                    title = S1.nextLine();
+
+                    Scanner S2 = new Scanner(System.in);
                     System.out.print("Enter Author of the Book: ");
-                    author = S.nextLine();
+                    author = S2.nextLine();
+
+                    Scanner S3 = new Scanner(System.in);
                     System.out.print("Enter Book Type: ");
-                    bookType = S.nextLine();
+                    bookType = S3.nextLine();
                     L.addBook(title, author, bookType);
                     break;
 
                 case 2:
-                    System.out.print("Enter Title of the Book: ");
-                    title = S.nextLine();
-                    L.lendBook(title);
+                    L.printAvBook();
+                    System.out.print("\nEnter the Number of the Book, Which you want to Lend: ");
+                    num = S.nextInt();
+                    L.lendBook(num);
                     break;
 
                 case 3:
-                    System.out.print("Enter Title of the Book: ");
-                    title = S.nextLine();
-                    L.returnBook(title);
+                    L.printNotAvBook();
+                    System.out.print("\nEnter the Number of the Book, Which you want to Return: ");
+                    num = S.nextInt();
+                    L.returnBook(num);
                     break;
 
                 case 4:
-                    L.printList();
+                    L.printAvBook();
+                    break;
+
+                case 5:
+                    L.printNotAvBook();
                     break;
 
                 default:

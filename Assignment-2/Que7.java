@@ -59,7 +59,6 @@ class Que7 {
 
         System.out.println("\n\nFlour Packet  (Weight: "+FS.get1kg().getWeight()+"KG)");
         System.out.println("----------------------------------------");
-        System.out.println("Price per KG: Rs."+FS.get1kg().getPrice());
-        System.out.println("\nTotal Price: Rs."+FS.get1kg().calcPrice());
+        System.out.println("\nTotal Price: Rs."+FS.get1kg().calcPrice()+"\n\n");
     }
 }

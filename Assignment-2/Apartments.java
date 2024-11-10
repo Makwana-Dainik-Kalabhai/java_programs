@@ -10,7 +10,7 @@ class Apartments implements Property {
     }
 
     public void buy() {
-        System.out.println("\n***Apartment is buy successfully with****\n  Price: Rs."+this.price+"\n  Location: "+this.location);
+        System.out.println("\n***Apartment is buy successfully with***\n  Price: Rs."+this.price+"\n  Location: "+this.location);
     }
 
     public void sell() {

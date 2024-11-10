@@ -67,8 +67,8 @@ class Kiosk implements DenominationHandler {
         K.displayDetails();
     }
     public void displayDetails() {
-        System.out.println("Your Bill Details...");
-        System.out.println("\nCustomer Number: "+custNo);
+        System.out.println("\n\nYour Bill Details...\n------------------------------------");
+        System.out.println("Customer Number: "+custNo);
         System.out.printf("\n500 * %d  :    Rs.%d",fiveHundred,fiveHundred*500);
         System.out.printf("\n100 * %d  :    Rs.%d",oneHundred,oneHundred*100);
         System.out.printf("\n10 * %d   :    Rs.%d",ten,ten*10);
@@ -82,7 +82,7 @@ class Que2 {
     public static void main(String[] args)
     {
         Scanner S = new Scanner(System.in);
-        System.out.print("Enter Customer Number: ");
+        System.out.print("\nEnter Customer Number: ");
         long custNo = S.nextLong();
 
         System.out.print("Enter Bill Amount: ");

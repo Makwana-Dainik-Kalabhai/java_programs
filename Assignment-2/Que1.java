@@ -63,13 +63,13 @@ class CafeOrder implements CoffeeOrder {
 
     public void displayOrder() {
         double total = 0;
-        System.out.println("\n\n------------------------------------\nBill Details...");
+        System.out.print("\n\nBill Details...\n------------------------------------");
         for(int i=0; i<Orders.size(); i++)
         {
-            System.out.printf("\n%d) %s (%s): Rs.%f",i+1,Orders.get(i).get(0),Orders.get(i).get(1),Orders.get(i).get(2));
+            System.out.printf("\n%d) %s (%s): Rs.%.2f",i+1,Orders.get(i).get(0),Orders.get(i).get(1),Orders.get(i).get(2));
             total += (double)Orders.get(i).get(2);
         }
-        System.out.println("\n\nTotal Payable Amount: Rs."+total+"\n\n");
+        System.out.println("\n\nTotal Payable Amount: Rs."+total+"\n");
     }
     public int getPrice() {
         return 0;
@@ -85,13 +85,13 @@ class Que1 {
         while(true)
         {
             System.out.println("\nCoffee Types...");
-            System.out.println("1) Latte (Rs.160)");
-            System.out.println("2) Cappuccino (Rs.260)");
-            System.out.println("3) Caffè mocha (Rs.200)");
-            System.out.println("4) Espresso (Rs.210)");
-            System.out.println("5) Frappe (Rs.250)");
-            System.out.println("6) Americano (Rs.170)");
-            System.out.println("7) Exit");
+            System.out.println("  1) Latte (Rs.160)");
+            System.out.println("  2) Cappuccino (Rs.260)");
+            System.out.println("  3) Caffè mocha (Rs.200)");
+            System.out.println("  4) Espresso (Rs.210)");
+            System.out.println("  5) Frappe (Rs.250)");
+            System.out.println("  6) Americano (Rs.170)");
+            System.out.println("  7) Exit");
 
             System.out.print("Choose Coffee Type: ");
             int choice = S.nextInt();
@@ -137,10 +137,10 @@ class Que1 {
     static void chooseSize()
     {
         System.out.println("\nCoffee Sizes(By Default Large)...");
-        System.out.printf("\n1) Small (Rs.%.2f)",Math.ceil(C.price/2));
-        System.out.printf("\n2) Medium (Rs.%.2f)",Math.ceil(C.price/1.5));
-        System.out.printf("\n3) Large (Rs.%.2f)",C.price);
-        System.out.print("\nChoose Coffee Size: ");
+        System.out.printf("  1) Small (Rs.%.2f)",Math.ceil(C.price/2));
+        System.out.printf("\n  2) Medium (Rs.%.2f)",Math.ceil(C.price/1.5));
+        System.out.printf("\n  3) Large (Rs.%.2f)",C.price);
+        System.out.print("\n\nChoose Coffee Size: ");
         int choice = S.nextInt();
         switch(choice)
         {
@@ -161,9 +161,9 @@ class Que1 {
         while(true)
         {
             System.out.println("\nChoices...");
-            System.out.println("1) Place an Order");
-            System.out.println("2) Display Bill");
-            System.out.println("3) Exit");
+            System.out.println("  1) Place an Order");
+            System.out.println("  2) Display Bill");
+            System.out.println("  3) Exit");
             System.out.print("Enter your Choice: ");
             int choice = S.nextInt();
 
@@ -174,8 +174,15 @@ class Que1 {
                     break;
 
                 case 2:
-                    C.displayOrder();
-                    return;
+                    try {
+                        C.Orders.get(0);
+                        C.displayOrder();
+                        return;
+                    }
+                    catch(Exception e) {
+                        System.out.println("***Please! Place Order First***");
+                    }
+                    break;
 
                 default:
                     return;

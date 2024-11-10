@@ -38,10 +38,18 @@ class BankAccount {
     }
 
     void printMiniStatement() {
-        System.out.println("\n\tTransaction History");
-        System.out.println("-------------------------------------------");
-        for(int i=0; i<transactions.size(); i++) {
-            System.out.printf(transactions.get(i)+"\n");
+        System.out.println("\n\nAccount Holder Name: "+this.accountHolder);
+
+        try {
+            transactions.get(0);
+            System.out.println("\n\tTransaction History");
+            System.out.println("-------------------------------------------");
+            for(int i=0; i<transactions.size(); i++) {
+                System.out.printf(transactions.get(i)+"\n");
+            }
+        }
+        catch(Exception e) {
+            System.out.println("\n***No Transaction History***");
         }
     }
 
